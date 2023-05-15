@@ -1,70 +1,68 @@
 import React from "react";
-//import "./UsersList.scss";
+import "./DataListTable.scss";
 import { TablePagination } from "../../components";
-import { dateFormat } from "../../_utils/date";
+import { MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
 
 export default function DataListTable({
-   data,
-   title = "Data",
-   count,
-   headers,
-   attributes,
-   onChange,
-   className,
-   pagination = null,
+  data,
+  title = "Data",
+  headers,
+  attributes,
+  onChange,
+
+  pagination = null,
 }) {
-   return (
-      <div className={className}>
-         <table>
-            <thead>
-               <tr colSpan={headers.length}>
-                  <th>
-                     <div className="tableTitle">
-                        {" "}
-                        {title} ({count})
-                     </div>
-                  </th>
-               </tr>
-               <tr>
-                  {headers.map((th, index) => (
-                     <th key={index}>{th}</th>
-                  ))}
-               </tr>
-            </thead>
-
-            <tbody>
-               {data.map((d) => (
-                  <tr data-user-id={d.id} onClick={onChange} key={d.id}>
-                     {attributes.map((attr, index) => (
-                        <td key={index}>{d[attr]}</td>
-                     ))}
-
-                     {/* <td>{user.id}</td>
-                     <td>{user.nombre}</td>
-                     <td>{user.apellidos}</td>
-                     <td>{user.email}</td>
-                     <td>{dateFormat(user.fecha_nacimiento)}</td>
-                     <td>{user?.alumno ? "YES" : "NO"}</td> */}
-                  </tr>
-               ))}
-            </tbody>
-
-            {pagination && (
-               <tfoot>
-                  <tr>
-                     <td colSpan={headers.length}>
-                        <TablePagination
-                           page={pagination.page}
-                           pages={pagination.pages}
-                           count={pagination.count}
-                           limit={data.length}
-                           onChange={onChange}
-                        />
-                     </td>
-                  </tr>
-               </tfoot>
-            )}
-         </table>
+  return (
+    <div className="DataListTable">
+      <div style={{ overflowX: "auto" }}>
+        <div className="mobileTableTitle">{title}</div>
+        <MDBTable
+          striped
+          hover
+          className="bg-success bg-gradient rounded-3 bg-opacity-25"
+        >
+          <MDBTableHead>
+            <tr colSpan={headers.length}>
+              <th>
+                <div className="tableTitle">{title}</div>
+              </th>
+            </tr>
+            <tr>
+              {headers.map((th, index) => (
+                <th scope="col" key={index}>
+                  {th}
+                </th>
+              ))}
+            </tr>
+          </MDBTableHead>
+          <MDBTableBody>
+            {data.map((d) => (
+              <tr scope="row" data-data-id={d.id} onClick={onChange} key={d.id}>
+                {attributes.map((attr, index) => (
+                  <td data-label={headers[index]} key={index}>
+                    {d[attr] ? d[attr] : "No definido"}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </MDBTableBody>
+          {pagination && (
+            <tfoot>
+              <tr>
+                <td colSpan={headers.length}>
+                  <TablePagination
+                    page={pagination.page}
+                    count={pagination.count}
+                    totalPages={pagination.totalPages}
+                    limit={data.length}
+                    onChange={onChange}
+                  />
+                </td>
+              </tr>
+            </tfoot>
+          )}
+        </MDBTable>
       </div>
-   );
+    </div>
+  );
 }

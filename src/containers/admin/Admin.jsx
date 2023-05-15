@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import userService from "../../_services/userService";
-import { DataListTable } from "../../components";
+import { DataListTable } from "../../components/";
 
 
 export default function Admin() {
