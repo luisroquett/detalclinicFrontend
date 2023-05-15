@@ -1,4 +1,4 @@
-# clinica_dental_frontend
+# Clinica Dental Frontend
 
 ## Table of Contents
 
@@ -9,11 +9,15 @@
 
 ## About <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+The idea of this projector was to use our previous backend project to create a frontend of a dental clinic where users can register, login, make an appointment among others...
 
-## Getting Started <a name = "getting_started"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+
+<a name="instructions"></a>
+
+## Instructions 📝
+
+The first step is to clone the repository and install the project dependencies.
 
 ### Prerequisites
 

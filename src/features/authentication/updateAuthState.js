@@ -2,11 +2,11 @@ import { decodeToken } from "react-jwt";
 import { store } from "../../app/store";
 import { setIsLoggedIn, setToken, setUserInfo } from "./authSlice";
 
+//Login
 export const updateAuthStoreStateLogin = (token) => {
    const myDecodedToken = decodeToken(token);
 
    // dispatch
-
    store.dispatch(setIsLoggedIn(true));
    store.dispatch(
       setUserInfo({
@@ -18,6 +18,7 @@ export const updateAuthStoreStateLogin = (token) => {
    store.dispatch(setToken(token));
 };
 
+//Logout
 export const updateAuthStoreStateLogout = () => {
    // dispatch
    store.dispatch(setIsLoggedIn(false));
