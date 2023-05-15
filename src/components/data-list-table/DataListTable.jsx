@@ -1,5 +1,5 @@
 import React from "react";
-import "./DataListTable.scss";
+
 import { TablePagination } from "../../components";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
 
