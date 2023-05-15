@@ -1,6 +1,10 @@
 import Admin from "./admin/";
-export {
+import Home from "./home";
+import Login from "./login";
+export { 
     Admin,
+    Home,
     Login,
+   
     PageNotFound,
  };
