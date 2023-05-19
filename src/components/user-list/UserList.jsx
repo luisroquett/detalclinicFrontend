@@ -1,7 +1,7 @@
 import React from "react";
 import "./UserList.scss";
 import { TablePagination } from "../../components";
-import { dateFormat } from "../../_utils/utils";
+
 
 export default function UserList({
   users,
@@ -35,8 +35,7 @@ export default function UserList({
               <td>{user.nombre}</td>
               <td>{user.apellidos}</td>
               <td>{user.email}</td>
-              <td>{user.edad}</td>
-              <td>{user?.alumno ? "YES" : "NO"}</td>
+              <td>{user.alumno ? "YES" : "NO"}</td>
             </tr>
           ))}
         </tbody>

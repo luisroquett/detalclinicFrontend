@@ -10,8 +10,8 @@ import Form from "react-bootstrap/Form";
 export default function Citas() {
   // HOOKS
   const authState = useSelector((state) => state.auth);
-  const [citas, setCitas] = useState([]);
-  const [citaId, setCitaId] = useState();
+  const [appointments, setAppointments] = useState([]);
+  const [appointmentId, setAppointmentsId] = useState();
   const [showForm, setShowForm] = useState(false);
   const [tableIdAttr_name, setTableIdAttr_name] = useState("");
   const [tableIdHead_name, setTableIdHead_name] = useState("");
@@ -40,7 +40,7 @@ export default function Citas() {
     try {
       const response = await appointmentService.getAppointmentPatient(token);
 
-      setCitas(response.appointments);
+      setAppointments(response.appointments);
     } catch (error) {
       console.log(error);
     }
@@ -50,7 +50,7 @@ export default function Citas() {
     try {
       const response = await appointmentService.getAppointmentDoctor(token);
 
-      setCitas(response.appointments);
+      setAppointments(response.appointments);
     } catch (error) {
       console.log(error);
     }
@@ -72,19 +72,18 @@ export default function Citas() {
     }
   };
 
-  const newCitas = (citas) =>
-    citas.map((cita) => {
-      cita.centro = cita.Centro.nombre_lugar;
-      cita.direccion = cita.Centro.direccion;
+  const newAppointments = (appointments) =>
+    appointments.map((cita) => {
+    
 
       return cita;
     });
 
   // HANDLERS
-  const handleCita = (e) => {
+  const handleAppointment = (e) => {
     const { dataId } = e.currentTarget.dataset;
 
-    setCitaId(dataId);
+    setAppointmentsId(dataId);
     setShowForm(true);
   };
 
@@ -101,43 +100,38 @@ export default function Citas() {
   };
 
   const handleSubmit = () => {
-    updateAppointment(authState.userToken, formValues, citaId);
+    updateAppointment(authState.userToken, formValues, appointmentId);
   };
 
   const handleDelete = () => {
-    deleteAppointment(authState.userToken, citaId);
+    deleteAppointment(authState.userToken, appointmentId);
     window.location.reload();
   };
 
   // RETURN
   return (
-    <div className="container Citas">
+    <div className="container Appointments">
+      d
       <DataListTable
-        data={newCitas(citas)}
-        title="Citas"
+        data={newAppointments(appointments)}
+        title="Appointment"
         headers={[
           "ID Cita",
           tableIdHead_name,
           "Fecha",
           "Hora",
-          "Tratamiento",
-          "Centro",
-          "Dirección",
-        ]}
+                ]}
         attributes={[
           "id",
           tableIdAttr_name,
           "fecha",
           "horario",
-          "tratamiento",
-          "centro",
-          "direccion",
         ]}
-        onChange={handleCita}
+        onChange={handleAppointment}
       />
       {showForm && (
         <div className="updateFormDates">
-          <h2>Modificar la cita con ID: {citaId}</h2>
+          <h2>Modificar la cita con ID: {appointmentId}</h2>
           <Form onSubmit={handleSubmit} className="updateForm">
             <Form.Group className="mb-4">
               <Form.Label>Nueva Fecha</Form.Label>
@@ -179,41 +173,7 @@ export default function Citas() {
               />
             </Form.Group>
 
-            <Form.Group className="mb-4">
-              <Form.Label>Cambiar Tratamiento</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Escriba su consulta"
-                name="tratamiento"
-                value={formValues.tratamiento}
-                onChange={handleChange}
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-4">
-              <Form.Label>Elegir el centro</Form.Label>
-              <Form.Check
-                type={"radio"}
-                name="id_centro"
-                value={1}
-                onChange={handleChange}
-                label={`Clinica Barcelona`}
-              />
-              <Form.Check
-                type={"radio"}
-                name="id_centro"
-                value={2}
-                onChange={handleChange}
-                label={`Clinica Madrid`}
-              />
-              <Form.Check
-                type={"radio"}
-                name="id_centro"
-                value={3}
-                onChange={handleChange}
-                label={`Clinica Valencia`}
-              />
-            </Form.Group>
+                  
             <div className="updateDateButtons">
               <Button variant="primary" type="submit" className="formButton">
                 Cambiar Cita

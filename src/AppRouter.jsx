@@ -19,7 +19,7 @@ export default function AppRouter() {
         <Route path="/appointments" element={<Appointments />} />
         <Route path="/create-appointment" element={<CreateAppointment />} />
         <Route path="/admin" element={<Admin />} />
-        <Route path="profile" element={<UserProfile />} />
+        <Route path="/profile" element={<UserProfile />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/register-doctor" element={<RegisterDoctor />} />

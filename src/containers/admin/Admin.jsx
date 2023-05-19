@@ -109,10 +109,10 @@ export default function Admin() {
 
   const newPatients = (users) =>
     users.map((user) => {
-      user.nombre = user.Usuario.nombre;
-      user.apellidos = user.Usuario.apellidos;
-      user.email = user.Usuario.email;
-      user.telefono = user.Usuario.telefono;
+      user.nombre = user.User.nombre;
+      user.apellidos = user.User.apellidos;
+      user.email = user.User.email;
+      user.telefono = user.User.telefono;
       return user;
     });
 
