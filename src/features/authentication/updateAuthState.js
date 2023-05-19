@@ -5,14 +5,14 @@ import { setIsLoggedIn, setToken, setUserInfo } from "./authSlice";
 // Loggin
 export const updateAuthStoreStateLogIn = (token) => {
   const myDecodedToken = decodeToken(token);
-
-  // dispatch
+console.log(myDecodedToken)//TODO
+  // dispatch 
   store.dispatch(setIsLoggedIn(true));
   store.dispatch(
     setUserInfo({
       id: myDecodedToken.user_id,
       name: myDecodedToken.user_name,
-      role: myDecodedToken.user_role,
+      role: myDecodedToken.role_name,
     })
   );
   store.dispatch(setToken(token));

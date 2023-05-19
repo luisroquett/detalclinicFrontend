@@ -20,13 +20,15 @@ export default function Admin() {
   const navigate = useNavigate();
   const authState = useSelector((state) => state.auth);
 
-  const isAdmin = authState.userInfo.role == "admin";
+  const isAdmin = authState.userInfo.role == "3";
 
   useEffect(() => {
+    console.log('Bienvenido adimin');
+    console.log(authState)
     if (isAdmin) {
       getAllPatients(authState.userToken, patientsPage);
       getAllDoctors(authState.userToken, doctorsPage);
-    } else {
+          } else {
       navigate("/");
     }
   }, [patientsPage, doctorsPage]);
@@ -127,7 +129,7 @@ export default function Admin() {
 
           <DataListTable
             data={newDoctors(doctors)}
-            title="Doctores"
+            title="Doctors"
             headers={["ID", "Nombre", "Apellido", "Email", "Teléfono"]}
             attributes={[
               "id",

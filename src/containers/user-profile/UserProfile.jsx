@@ -138,13 +138,7 @@ export default function UserProfile() {
                       borderBottomLeftRadius: ".5rem",
                     }}
                   >
-                    <MDBCardImage
-                      src={profileImage}
-                      alt="Avatar"
-                      className="my-5"
-                      style={{ width: "80px" }}
-                      fluid
-                    />
+                  
                     <MDBTypography tag="h5">
                       {profile.nombre} {profile.apellidos}
                     </MDBTypography>

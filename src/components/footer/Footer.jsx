@@ -14,8 +14,8 @@ export default function Footer() {
           <div>From Monday to Friday from 9AM to 8:30PM</div>
           </div>
         <div className="contactApponitmen">
-          <h2>Contacto</h2>
-          <div>Teléfono: 684165405</div>
+          <h2>Contact</h2>
+          <div>Phone Number: 684165405</div>
           </div>
       </footer>
     </>

@@ -1,26 +1,54 @@
-import React from "react";
-import { useState } from "react";
-import Form from "react-bootstrap/Form";
-import authService from "../../_services/authService";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
-
-
+import authService from "../../_services/authService";
+import Form from "react-bootstrap/Form";
+import validator from "validator";
 
 export default function Register() {
+  // HOOKS
   const [formValues, setFormValues] = useState({});
+  const [showForm, setShowForm] = useState(true);
+  const [validated, setValidated] = useState(false);
+  const [registerError, setRegisterError] = useState(null);
 
+  // FUNCTIONS
+
+  const registerUser = async (credentials) => {
+    await authService.register(credentials);
+  };
+
+  // HANDLERS
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({
       ...formValues,
-      [name]: value, // key: value
+      [name]: value,
     });
   };
-  const handleSubmit = () => {
-    registerUser(formValues);
-  };
-  const registerUser = async (body) => {
-    const response = await authService.registerUser(body);
+
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    } else {
+      registerUser(formValues);
+      setShowForm(false);
+    }
+    setValidated(true);
+
+    if (formValues.password) {
+      if (
+        !validator.isByteLength(formValues.password, { min: 8, max: undefined })
+      ) {
+        setRegisterError("La contraseña debe contener mínimo 8 caracteres");
+      } else if (
+        validator.isByteLength(formValues.password, { min: 8, max: undefined })
+      ) {
+        setRegisterError(null);
+      }
+    }
   };
 
   return (
@@ -75,7 +103,7 @@ export default function Register() {
             />
           </Form.Group>
           <Button variant="primary" type="submit" className="buttonUpdate">
-            Crear perfil
+          Create profile
           </Button>
         </Form>
       </div>

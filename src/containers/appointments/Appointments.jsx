@@ -176,13 +176,13 @@ export default function Citas() {
                   
             <div className="updateDateButtons">
               <Button variant="primary" type="submit" className="formButton">
-                Cambiar Cita
+                Change appointment
               </Button>
               <Button variant="success" onClick={handleShowForm} className="formButton">
-                No modificar la cita
+                Update appointment
               </Button>
               <Button variant="danger" onClick={handleDelete} className="formButton">
-                Borrar la cita
+                Delete appointment
               </Button>
             </div>
           </Form>

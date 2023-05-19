@@ -8,11 +8,11 @@ import {
   MdOutlineLogout,
   MdOutlineLogin,
 } from "react-icons/md";
-// import Container from "react-bootstrap/Container";
-// import Nav from "react-bootstrap/Nav";
-// import Navbar from "react-bootstrap/Navbar";
-// import NavDropdown from "react-bootstrap/NavDropdown";
-// import navLogo from "../../assets/dental-logo.png";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import navLogo from "../../assets/dental-logo.png";
 
 export default function Header() {
   // hooks
@@ -30,139 +30,139 @@ export default function Header() {
   };
 
   return (
-    // <div className="Header">
-    //   <Navbar
-    //     className="bg-gradient"
-    //     collapseOnSelect
-    //     expand="lg"
-    //     bg="dark"
-    //     variant="dark"
-    //   >
-    //     <Container>
-    //       <Navbar.Brand href="/">
-    //         <img
-    //           src={navLogo}
-    //           width="50"
-    //           height="50"
-    //           className="d-inline-block align-top"
-    //           alt="React Bootstrap logo"
-    //         />
-            
-    //       </Navbar.Brand>
-    //       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-    //       <Navbar.Collapse id="responsive-navbar-nav">
-    //       <Nav className="me-auto">
-    //           {!isAdmin && isLoggedIn && (
-    //             <>
-    //               <NavLink className="nav-link" to="/appointments">
-    //                 Appointments
-    //               </NavLink>
-    //             </>
-    //           )}
-    //           {!isAdmin && !isDoctor && isLoggedIn && (
-    //             <NavLink className="nav-link" to="/create-appointment">
-    //               Create appointment
-    //             </NavLink>
-    //           )}
-    //           {isAdmin && (
-    //             <>
-    //               <NavLink className="nav-link" to="/admin">
-    //                 Admin
-    //               </NavLink>
-    //               <NavLink className="nav-link" to="/register-doctor">
-    //                Register doctor
-    //               </NavLink>
-    //             </>
-    //           )}
-    //         </Nav>
-    //         {!isLoggedIn && (
-    //           <Nav>
-    //             <NavLink className="nav-link" to="/login">
-    //               <MdOutlineLogin /> Login
-    //             </NavLink>
-    //             <NavLink className="nav-link" to="/register">
-    //             Sign in
-    //             </NavLink>
-    //           </Nav>
-    //         )}
-    //         {isLoggedIn && (
-    //          <Nav>
-    //          <NavDropdown title={name} id="collasible-nav-dropdown" align="end">
-    //            <NavDropdown.Item href="/profile">
-    //              <MdPersonOutline /> Profile
-    //            </NavDropdown.Item>
-    //            <NavDropdown.Item onClick={handleLogout}>
-    //              <MdOutlineLogout /> Logout
-    //            </NavDropdown.Item>
-    //          </NavDropdown>
-    //        </Nav>
-    //         )}
-    //       </Navbar.Collapse>
-    //     </Container>
-    //   </Navbar>
-    // </div>
     <div className="Header">
-         <nav className="navbar">
-            <ul className="navbar-nav">
-               <li className="nav-item">
-                  <NavLink to="/">Home</NavLink>
-               </li>
+      <Navbar
+        className="bg-gradient"
+        collapseOnSelect
+        expand="lg"
+        bg="dark"
+        variant="dark"
+      >
+        <Container>
+          <Navbar.Brand href="/">
+            <img
+              src={navLogo}
+              width="50"
+              height="50"
+              className="d-inline-block align-top"
+              alt="React Bootstrap logo"
+            />
+            
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+              {!isAdmin && isLoggedIn && (
+                <>
+                  <NavLink className="nav-link" to="/appointments">
+                    Appointments
+                  </NavLink>
+                </>
+              )}
+              {!isAdmin && !isDoctor && isLoggedIn && (
+                <NavLink className="nav-link" to="/create-appointment">
+                  Create appointment
+                </NavLink>
+              )}
+              {isAdmin && (
+                <>
+                  <NavLink className="nav-link" to="/admin">
+                    Admin
+                  </NavLink>
+                  <NavLink className="nav-link" to="/register-doctor">
+                   Register doctor
+                  </NavLink>
+                </>
+              )}
+            </Nav>
+            {!isLoggedIn && (
+              <Nav>
+                <NavLink className="nav-link" to="/login">
+                  <MdOutlineLogin /> Login
+                </NavLink>
+                <NavLink className="nav-link" to="/register">
+                Sign in
+                </NavLink>
+              </Nav>
+            )}
+            {isLoggedIn && (
+             <Nav>
+             <NavDropdown title={name} id="collasible-nav-dropdown" align="end">
+               <NavDropdown.Item href="/profile">
+                 <MdPersonOutline /> Profile
+               </NavDropdown.Item>
+               <NavDropdown.Item onClick={handleLogout}>
+                 <MdOutlineLogout /> Logout
+               </NavDropdown.Item>
+             </NavDropdown>
+           </Nav>
+            )}
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </div>
+   //  <div className="Header">
+   //       <nav className="navbar">
+   //          <ul className="navbar-nav">
+   //             <li className="nav-item">
+   //                <NavLink to="/">Home</NavLink>
+   //             </li>
 
-               <li className="nav-item">
-                  <NavLink to="/appointments">Appointments</NavLink>
-               </li>
-               <li className="nav-item">
-                  <NavLink to="/about">About</NavLink>
-               </li>
+   //             <li className="nav-item">
+   //                <NavLink to="/appointments">Appointments</NavLink>
+   //             </li>
+   //             <li className="nav-item">
+   //                <NavLink to="/about">About</NavLink>
+   //             </li>
 
-               {isAdmin && (
-                  <>
-                     <li className="nav-item">
-                        <NavLink to="/admin">Admin</NavLink>
-                     </li>
-                  </>
-               )}
-            </ul>
+   //             {isAdmin && (
+   //                <>
+   //                   <li className="nav-item">
+   //                      <NavLink to="/admin">Admin</NavLink>
+   //                   </li>
+   //                </>
+   //             )}
+   //          </ul>
 
-            <ul className="navbar-nav">
-               {!isLoggedIn && (
-                  <>
-                     <li className="nav-item">
-                        <NavLink to="/login">
-                           <MdOutlineLogin />
-                           Login
-                        </NavLink>
-                     </li>
-                     <li className="nav-item">
-                        <NavLink to="/register">Register</NavLink>
-                     </li>
-                  </>
-               )}
+   //          <ul className="navbar-nav">
+   //             {!isLoggedIn && (
+   //                <>
+   //                   <li className="nav-item">
+   //                      <NavLink to="/login">
+   //                         <MdOutlineLogin />
+   //                         Login
+   //                      </NavLink>
+   //                   </li>
+   //                   <li className="nav-item">
+   //                      <NavLink to="/register">Register</NavLink>
+   //                   </li>
+   //                </>
+   //             )}
 
-               {isLoggedIn && (
-                  <>
-                     <li className="nav-item dropdown ">
-                        <a>
-                           <MdPersonOutline className="icon" /> {name}{" "}
+   //             {isLoggedIn && (
+   //                <>
+   //                   <li className="nav-item dropdown ">
+   //                      <a>
+   //                         <MdPersonOutline className="icon" /> {name}{" "}
                            
-                        </a>
+   //                      </a>
 
-                        <ul className="dropdown-menu">
-                           <li className="dropdown-item">
-                              <NavLink to="/profile">Profile</NavLink>
-                           </li>
-                           <li className="dropdown-item">
-                              <a onClick={handleLogout}>
-                                 <MdOutlineLogout />
-                                 Logout
-                              </a>
-                           </li>
-                        </ul>
-                     </li>
-                  </>
-               )}
-            </ul>
-         </nav>
-      </div>
+   //                      <ul className="dropdown-menu">
+   //                         <li className="dropdown-item">
+   //                            <NavLink to="/profile">Profile</NavLink>
+   //                         </li>
+   //                         <li className="dropdown-item">
+   //                            <a onClick={handleLogout}>
+   //                               <MdOutlineLogout />
+   //                               Logout
+   //                            </a>
+   //                         </li>
+   //                      </ul>
+   //                   </li>
+   //                </>
+   //             )}
+   //          </ul>
+   //       </nav>
+   //    </div>
   );
 }
