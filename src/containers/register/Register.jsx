@@ -61,11 +61,15 @@ export default function Register() {
     }
   };
   return (
+    
     <div className="Register container">
+      <pre style={{ textAlign: "left", width: "250px", margin: "auto" }}>
+            {JSON.stringify(formValues, null, 2)}
+         </pre>
       {!showForm && (
         <div className="d-flex justify-content-center mt-5">
           <h1>Registrado Correctamente!</h1>
-        </div>
+        </div> 
       )}
       {showForm && (
         <MDBRow className="d-flex justify-content-center align-items-center h-100">
@@ -97,7 +101,7 @@ export default function Register() {
                             size="lg"
                             type="text"
                             onChange={handleChange}
-                            name="name"
+                            name="nombre"
                             value={formValues.nombre}
                           />
                         </MDBCol>
@@ -109,7 +113,7 @@ export default function Register() {
                             size="lg"
                             type="text"
                             onChange={handleChange}
-                            name="Lastname"
+                            name="apellidos"
                             value={formValues.apellidos}
                           />
                         </MDBCol>
@@ -132,7 +136,7 @@ export default function Register() {
                         size="lg"
                         type="number"
                         onChange={handleChange}
-                        name="phone"
+                        name="telefono"
                         value={formValues.telefono}
                       />
                       <MDBInput

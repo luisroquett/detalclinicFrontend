@@ -20,8 +20,8 @@ authService.registerUser = async (credentials) => {
     nombre: credentials.nombre,
     apellidos: credentials.apellidos,
     email: credentials.email,
-    telefono: data.telefono,
-    password: data.password,
+    telefono: credentials.telefono,
+    password: credentials.password,
   };
 
 
