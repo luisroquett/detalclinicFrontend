@@ -129,6 +129,24 @@ export default function CreateAppoint() {
                 onChange={handleChange}
               />
             </Form.Group>
+            <Form.Group className="mb-4">
+              <Form.Label>Elige el Doctor</Form.Label>
+              <Form.Check
+                required
+                type={"radio"}
+                name="id_doctor"
+                value={1}
+                label={`Gerardo Martinez`}
+                onChange={handleChange}
+              />
+              <Form.Check
+                type={"radio"}
+                name="id_doctor"
+                value={2}
+                label={`Padula Rumiel`}
+                onChange={handleChange}
+              />
+            </Form.Group>
 
           
 

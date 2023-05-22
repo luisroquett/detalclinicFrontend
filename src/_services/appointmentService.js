@@ -3,26 +3,26 @@ import { global } from "../_global/global";
 
 const appointmentService = {};
 
-appointmentService.getPatientsAppointments = async (token) => {
+appointmentService.getPatientsAppointments = async (token, patientId) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   };
-  return (await axios.get(global.BASE_URL + `/users/appointments/checkall/`, config)).data;
+  return (await axios.get(global.BASE_URL + `/users/appointments/checkall/${patientId}`, config)).data;
 };
 
-appointmentService.getAppointementsDoctor = async (token) => {
+appointmentService.getAppointementsDoctor = async (token, doctorId) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   };
-  return (await axios.get(global.BASE_URL + `/users/appointments/checkalldoctors/`, config))
+  return (await axios.get(global.BASE_URL + `/users/appointments/checkalldoctors/${doctorId}`, config))
     .data;
 };
 
-appointmentService.createCita = async (token, data) =>{
+appointmentService.createAppointment = async (token, data) =>{
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,

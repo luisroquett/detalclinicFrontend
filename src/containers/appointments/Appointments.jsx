@@ -13,44 +13,48 @@ export default function Citas() {
   const [appointments, setAppointments] = useState([]);
   const [appointmentId, setAppointmentsId] = useState();
   const [showForm, setShowForm] = useState(false);
-  const [tableIdAttr_name, setTableIdAttr_name] = useState("");
-  const [tableIdHead_name, setTableIdHead_name] = useState("");
   const [formValues, setFormValues] = useState({});
   const isLoggedIn = authState.isLoggedIn;
-  const isPatient = authState.userInfo.role == "user";
+  const isPatient = authState.userInfo.role == "patient";
   const isDoctor = authState.userInfo.role == "doctor";
   const navigate = useNavigate();
 
   useEffect(() => {
     if (isLoggedIn && isPatient) {
-      getAppointmentPatient(authState.userToken);
-      setTableIdAttr_name("id_doctor");
-      setTableIdHead_name("ID Doctor");
+      getAppointmentPatient(authState.userToken, authState.userInfo.id); 
+     
+    
     } else if (isLoggedIn && isDoctor) {
-      getAppointmentDoctor(authState.userToken);
-      setTableIdAttr_name("id_paciente");
-      setTableIdHead_name("ID Paciente");
+      getAppointmentDoctor(authState.userToken, authState.userInfo.id);
+    
     } else {
       navigate("/");
     }
   }, []);
 
   // FUNCTIONS
-  const getAppointmentPatient = async (token) => {
+  const getAppointmentPatient = async (token, patientId) => {
     try {
-      const response = await appointmentService.getAppointmentPatient(token);
+      const response = await appointmentService.getPatientsAppointments(
+        token,
+        patientId
+      );
 
-      setAppointments(response.appointments);
+      setAppointments(response.data);
+     
     } catch (error) {
       console.log(error);
     }
   };
 
-  const getAppointmentDoctor = async (token) => {
+  const getAppointmentDoctor = async (token, doctorId) => {
     try {
-      const response = await appointmentService.getAppointmentDoctor(token);
+      const response = await appointmentService.getAppointementsDoctor(
+        token,
+        doctorId
+      );
 
-      setAppointments(response.appointments);
+      setAppointments(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -71,13 +75,6 @@ export default function Citas() {
       console.log(error);
     }
   };
-
-  const newAppointments = (appointments) =>
-    appointments.map((cita) => {
-    
-
-      return cita;
-    });
 
   // HANDLERS
   const handleAppointment = (e) => {
@@ -111,22 +108,11 @@ export default function Citas() {
   // RETURN
   return (
     <div className="container Appointments">
-      d
       <DataListTable
-        data={newAppointments(appointments)}
+        data={appointments}
         title="Appointment"
-        headers={[
-          "ID Cita",
-          tableIdHead_name,
-          "Fecha",
-          "Hora",
-                ]}
-        attributes={[
-          "id",
-          tableIdAttr_name,
-          "fecha",
-          "horario",
-        ]}
+        headers={["ID Appointment", "ID Patient", "ID Doctor", "Time", "Date"]}
+        attributes={["id", "id_patients", "id_doctors", "time", "date"]}
         onChange={handleAppointment}
       />
       {showForm && (
@@ -173,15 +159,22 @@ export default function Citas() {
               />
             </Form.Group>
 
-                  
             <div className="updateDateButtons">
               <Button variant="primary" type="submit" className="formButton">
                 Change appointment
               </Button>
-              <Button variant="success" onClick={handleShowForm} className="formButton">
+              <Button
+                variant="success"
+                onClick={handleShowForm}
+                className="formButton"
+              >
                 Update appointment
               </Button>
-              <Button variant="danger" onClick={handleDelete} className="formButton">
+              <Button
+                variant="danger"
+                onClick={handleDelete}
+                className="formButton"
+              >
                 Delete appointment
               </Button>
             </div>
