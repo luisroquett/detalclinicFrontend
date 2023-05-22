@@ -1,16 +1,6 @@
 import React from "react";
 import {Routes, Route} from "react-router-dom"
-import {
-    Admin,
-    Appointments,
-    Home,
-    Login,
-    Register,
-    UserProfile,
-    PageNotFound,
-    CreateAppointment,
-    RegisterDoctor,
-} from "./containers"
+import { Admin, Appointments, CreateAppointment, Home, Login, PageNotFound, Register, RegisterDoctor, UserProfile } from "./containers"
 
 export default function AppRouter() {
     return (

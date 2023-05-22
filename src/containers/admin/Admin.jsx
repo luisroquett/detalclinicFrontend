@@ -20,7 +20,7 @@ export default function Admin() {
   const navigate = useNavigate();
   const authState = useSelector((state) => state.auth);
 
-  const isAdmin = authState.userInfo.role == "3";
+  const isAdmin = authState.userInfo.role == "admin";
 
   useEffect(() => {
     console.log('Bienvenido adimin');
@@ -80,7 +80,7 @@ export default function Admin() {
     try {
       const response = await userService.getAllPatients(token, page);
 
-      setPatients(response.results);
+      setPatients(response.data);
       setPatientsCount(response.info.total_results);
       setTotalPagesPatients(response.info.total_pages);
     } catch (error) {
@@ -92,7 +92,7 @@ export default function Admin() {
     try {
       const response = await userService.getAllDoctors(token, page);
 
-      setDoctors(response.results);
+      setDoctors(response.data);
       setDoctorsCount(response.info.total_results);
       setTotalPagesDoctors(response.info.total_pages);
     } catch (error) {
@@ -102,10 +102,10 @@ export default function Admin() {
 
   const newDoctors = (users) =>
     users.map((user) => {
-      user.nombre = user.Doctor.nombre;
-      user.apellidos = user.Doctor.apellidos;
-      user.email = user.Doctor.email;
-      user.telefono = user.Doctor.telefono;
+      user.nombre = user.User.nombre;
+      user.apellidos = user.User.apellidos;
+      user.email = user.User.email;
+      user.telefono = user.User.telefono;
       return user;
     });
 

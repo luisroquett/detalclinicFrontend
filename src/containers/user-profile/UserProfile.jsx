@@ -138,7 +138,6 @@ export default function UserProfile() {
                       borderBottomLeftRadius: ".5rem",
                     }}
                   >
-                  
                     <MDBTypography tag="h5">
                       {profile.nombre} {profile.apellidos}
                     </MDBTypography>
@@ -149,7 +148,7 @@ export default function UserProfile() {
                   </MDBCol>
                   <MDBCol md="8">
                     <MDBCardBody className="p-4">
-                      <MDBTypography tag="h6">Información</MDBTypography>
+                      <MDBTypography tag="h6">Information</MDBTypography>
                       <hr className="mt-0 mb-4" />
                       <MDBRow className="pt-1">
                         <MDBCol className="mb-3 col-12">
@@ -159,15 +158,9 @@ export default function UserProfile() {
                           </MDBCardText>
                         </MDBCol>
                         <MDBCol className="mb-3 col-12 col-md-6">
-                          <MDBTypography tag="h6">Teléfono</MDBTypography>
+                          <MDBTypography tag="h6">Phone</MDBTypography>
                           <MDBCardText className="text-muted">
                             {profile.telefono}
-                          </MDBCardText>
-                        </MDBCol>
-                        <MDBCol className="mb-3 col-12 col-md-6">
-                          <MDBTypography tag="h6">Edad</MDBTypography>
-                          <MDBCardText className="text-muted">
-                            {profile.edad}
                           </MDBCardText>
                         </MDBCol>
                       </MDBRow>
@@ -281,4 +274,4 @@ export default function UserProfile() {
       )}
     </div>
   );
-}
+};

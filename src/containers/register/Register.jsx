@@ -1,7 +1,17 @@
 import React, { useState } from "react";
+
+import {
+  MDBCard,
+  MDBCardBody,
+  MDBCardImage,
+  MDBRow,
+  MDBCol,
+  MDBInput,
+} from "mdb-react-ui-kit";
 import Button from "react-bootstrap/Button";
 import authService from "../../_services/authService";
 import Form from "react-bootstrap/Form";
+import registerImage from "../../assets/dentalLogo.png";
 import validator from "validator";
 
 export default function Register() {
@@ -14,7 +24,7 @@ export default function Register() {
   // FUNCTIONS
 
   const registerUser = async (credentials) => {
-    await authService.register(credentials);
+    await authService.registerUser(credentials);
   };
 
   // HANDLERS
@@ -50,63 +60,113 @@ export default function Register() {
       }
     }
   };
-
   return (
-    <div className="perfil-formulario">
-      <div className="formulario">
-        <h1>Sing in</h1>
-        <Form onSubmit={handleSubmit} className="padreBtn">
-        <pre style={{ textAlign: "left", width: "250px", margin: "auto" }}>
-            {JSON.stringify(formValues, null, 2)}
-         </pre>
-          <Form.Group className="mb-3  rounded p-4 inputForm">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Fulanito "
-              name="name"
-              value={formValues.nombre}
-              onChange={handleChange}
-            />
-            <Form.Label>Lastname</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="DeTal "
-              name="apellidos"
-              value={formValues.apellidos}
-              onChange={handleChange}
-            />
-         
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Email "
-              name="email"
-              value={formValues.email}
-              onChange={handleChange}
-            />
-            <Form.Label>Telefono</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Teléfono "
-              name="telefono"
-              value={formValues.telefono}
-              onChange={handleChange}
-            />
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              name="password"
-              value={formValues.password}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          <Button variant="primary" type="submit" className="buttonUpdate">
-          Create profile
-          </Button>
-        </Form>
-      </div>
+    <div className="Register container">
+      {!showForm && (
+        <div className="d-flex justify-content-center mt-5">
+          <h1>Registrado Correctamente!</h1>
+        </div>
+      )}
+      {showForm && (
+        <MDBRow className="d-flex justify-content-center align-items-center h-100">
+          <MDBCol>
+            <MDBCard className="my-4 registerCard">
+              <MDBRow className="g-0">
+                <MDBCol md="6" className="d-none d-md-block">
+                  <MDBCardImage src={registerImage} alt="Clinic Logo" fluid />
+                </MDBCol>
+
+                <MDBCol md="6">
+                  <Form
+                    onSubmit={handleSubmit}
+                    className="registerForm"
+                    noValidate
+                    validated={validated}
+                  >
+                    <MDBCardBody className="text-black d-flex flex-column justify-content-center">
+                      <h3 className="mb-5 text-uppercase fw-bold">
+                        Registrate en nuestra clínica!
+                      </h3>
+
+                      <MDBRow>
+                        <MDBCol md="6">
+                          <MDBInput
+                            required
+                            wrapperClass="mb-4"
+                            label="Name"
+                            size="lg"
+                            type="text"
+                            onChange={handleChange}
+                            name="name"
+                            value={formValues.nombre}
+                          />
+                        </MDBCol>
+                        <MDBCol md="6">
+                          <MDBInput
+                            required
+                            wrapperClass="mb-4"
+                            label="Lastname"
+                            size="lg"
+                            type="text"
+                            onChange={handleChange}
+                            name="Lastname"
+                            value={formValues.apellidos}
+                          />
+                        </MDBCol>
+                      </MDBRow>
+                    
+                      <MDBInput
+                        required
+                        wrapperClass="mb-4"
+                        label="Email"
+                        size="lg"
+                        type="email"
+                        onChange={handleChange}
+                        name="email"
+                        value={formValues.email}
+                      />
+                      <MDBInput
+                        required
+                        wrapperClass="mb-4"
+                        label="Phone"
+                        size="lg"
+                        type="number"
+                        onChange={handleChange}
+                        name="phone"
+                        value={formValues.telefono}
+                      />
+                      <MDBInput
+                        required
+                        wrapperClass="mb-4"
+                        label="Password"
+                        size="lg"
+                        type="password"
+                        onChange={handleChange}
+                        name="password"
+                        value={formValues.password}
+                      />
+
+                      <div className="d-flex flex-column justify-content-center pt-3">
+                        {registerError && (
+                          <p style={{ color: "red" }}>{registerError}</p>
+                        )}
+                        <Button
+                          className="ms-2"
+                          variant="success"
+                          size="lg"
+                          type="submit"
+                        >
+                          Registrarse
+                        </Button>
+                      </div>
+                    </MDBCardBody>
+                  </Form>
+                </MDBCol>
+              </MDBRow>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
+      )}
     </div>
   );
 }

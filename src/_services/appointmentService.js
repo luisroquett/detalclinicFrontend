@@ -12,7 +12,7 @@ appointmentService.getPatientsAppointments = async (token) => {
   return (await axios.get(global.BASE_URL + `/users/appointments/checkall/`, config)).data;
 };
 
-appointmentService.getCitasOdontologo = async (token) => {
+appointmentService.getAppointementsDoctor = async (token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,

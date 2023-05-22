@@ -12,7 +12,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import navLogo from "../../assets/dental-logo.png";
+import navLogo from "../../assets/dentalLogo.png";
 
 export default function Header() {
   // hooks
@@ -47,11 +47,10 @@ export default function Header() {
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
             />
-            
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
+            <Nav className="me-auto">
               {!isAdmin && isLoggedIn && (
                 <>
                   <NavLink className="nav-link" to="/appointments">
@@ -70,7 +69,7 @@ export default function Header() {
                     Admin
                   </NavLink>
                   <NavLink className="nav-link" to="/register-doctor">
-                   Register doctor
+                    Register doctor
                   </NavLink>
                 </>
               )}
@@ -81,88 +80,92 @@ export default function Header() {
                   <MdOutlineLogin /> Login
                 </NavLink>
                 <NavLink className="nav-link" to="/register">
-                Sign in
+                  Sign in
                 </NavLink>
               </Nav>
             )}
             {isLoggedIn && (
-             <Nav>
-             <NavDropdown title={name} id="collasible-nav-dropdown" align="end">
-               <NavDropdown.Item href="/profile">
-                 <MdPersonOutline /> Profile
-               </NavDropdown.Item>
-               <NavDropdown.Item onClick={handleLogout}>
-                 <MdOutlineLogout /> Logout
-               </NavDropdown.Item>
-             </NavDropdown>
-           </Nav>
+              <Nav>
+                <NavDropdown
+                  title={name}
+                  id="collasible-nav-dropdown"
+                  align="end"
+                >
+                  <NavDropdown.Item href="/profile">
+                    <MdPersonOutline /> Profile
+                  </NavDropdown.Item>
+                  <NavDropdown.Item onClick={handleLogout}>
+                    <MdOutlineLogout /> Logout
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
             )}
           </Navbar.Collapse>
         </Container>
       </Navbar>
     </div>
-   //  <div className="Header">
-   //       <nav className="navbar">
-   //          <ul className="navbar-nav">
-   //             <li className="nav-item">
-   //                <NavLink to="/">Home</NavLink>
-   //             </li>
+    //  <div className="Header">
+    //       <nav className="navbar">
+    //          <ul className="navbar-nav">
+    //             <li className="nav-item">
+    //                <NavLink to="/">Home</NavLink>
+    //             </li>
 
-   //             <li className="nav-item">
-   //                <NavLink to="/appointments">Appointments</NavLink>
-   //             </li>
-   //             <li className="nav-item">
-   //                <NavLink to="/about">About</NavLink>
-   //             </li>
+    //             <li className="nav-item">
+    //                <NavLink to="/appointments">Appointments</NavLink>
+    //             </li>
+    //             <li className="nav-item">
+    //                <NavLink to="/about">About</NavLink>
+    //             </li>
 
-   //             {isAdmin && (
-   //                <>
-   //                   <li className="nav-item">
-   //                      <NavLink to="/admin">Admin</NavLink>
-   //                   </li>
-   //                </>
-   //             )}
-   //          </ul>
+    //             {isAdmin && (
+    //                <>
+    //                   <li className="nav-item">
+    //                      <NavLink to="/admin">Admin</NavLink>
+    //                   </li>
+    //                </>
+    //             )}
+    //          </ul>
 
-   //          <ul className="navbar-nav">
-   //             {!isLoggedIn && (
-   //                <>
-   //                   <li className="nav-item">
-   //                      <NavLink to="/login">
-   //                         <MdOutlineLogin />
-   //                         Login
-   //                      </NavLink>
-   //                   </li>
-   //                   <li className="nav-item">
-   //                      <NavLink to="/register">Register</NavLink>
-   //                   </li>
-   //                </>
-   //             )}
+    //          <ul className="navbar-nav">
+    //             {!isLoggedIn && (
+    //                <>
+    //                   <li className="nav-item">
+    //                      <NavLink to="/login">
+    //                         <MdOutlineLogin />
+    //                         Login
+    //                      </NavLink>
+    //                   </li>
+    //                   <li className="nav-item">
+    //                      <NavLink to="/register">Register</NavLink>
+    //                   </li>
+    //                </>
+    //             )}
 
-   //             {isLoggedIn && (
-   //                <>
-   //                   <li className="nav-item dropdown ">
-   //                      <a>
-   //                         <MdPersonOutline className="icon" /> {name}{" "}
-                           
-   //                      </a>
+    //             {isLoggedIn && (
+    //                <>
+    //                   <li className="nav-item dropdown ">
+    //                      <a>
+    //                         <MdPersonOutline className="icon" /> {name}{" "}
 
-   //                      <ul className="dropdown-menu">
-   //                         <li className="dropdown-item">
-   //                            <NavLink to="/profile">Profile</NavLink>
-   //                         </li>
-   //                         <li className="dropdown-item">
-   //                            <a onClick={handleLogout}>
-   //                               <MdOutlineLogout />
-   //                               Logout
-   //                            </a>
-   //                         </li>
-   //                      </ul>
-   //                   </li>
-   //                </>
-   //             )}
-   //          </ul>
-   //       </nav>
-   //    </div>
+    //                      </a>
+
+    //                      <ul className="dropdown-menu">
+    //                         <li className="dropdown-item">
+    //                            <NavLink to="/profile">Profile</NavLink>
+    //                         </li>
+    //                         <li className="dropdown-item">
+    //                            <a onClick={handleLogout}>
+    //                               <MdOutlineLogout />
+    //                               Logout
+    //                            </a>
+    //                         </li>
+    //                      </ul>
+    //                   </li>
+    //                </>
+    //             )}
+    //          </ul>
+    //       </nav>
+    //    </div>
   );
 }

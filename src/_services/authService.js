@@ -10,22 +10,22 @@ authService.login = async (credentials) => {
     password: credentials.password,
   };
 
-  return (await axios.post(global.BASE_URL + "/auth/login", body)).data;
+  return (await axios.post(global.BASE_URL + `/auth/login`, body)).data;
 };
 
 //registro de usuarios
-authService.registerUser = async (data) => {
+authService.registerUser = async (credentials) => {
 
   const body = {
-    nombre: data.nombre,
-    apellidos: data.apellidos,
-    email: data.email,
+    nombre: credentials.nombre,
+    apellidos: credentials.apellidos,
+    email: credentials.email,
     telefono: data.telefono,
     password: data.password,
   };
 
 
-  return (await axios.post(global.BASE_URL + `/auth/register/`, body))
+  return (await axios.post(global.BASE_URL + `/auth/register`, body))
     .data;
 }
 
