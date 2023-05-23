@@ -1,50 +1,75 @@
-# Clinica Dental Frontend
+<p align="center">
+  <a href="" rel="noopener">
+    <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo">
+  </a>
+</p>
 
-## Table of Contents
+<h3 align="center">Dental Clinic Frontend</h3>
 
-- [About](#about)
-- [Getting Started](#getting_started)
-- [Usage](#usage)
-- [Contributing](../CONTRIBUTING.md)
+<div align="center">
 
-## About <a name = "about"></a>
+</div>
 
-The idea of this projector was to use our previous backend project to create a frontend of a dental clinic where users can register, login, make an appointment among others...
+---
 
+<p align="center">
+    <br> 
+</p>
 
+## 🧐 About <a name="about"></a>
 
-<a name="instructions"></a>
+It is the functional Frontend design of a dental clinic, with views for login, registration, appointments, and modifications.
 
-## Instructions 📝
+It allows navigation through different areas based on your role: User, Admin, and Dentist.
 
-The first step is to clone the repository and install the project dependencies.
+Backend: [https://github.com/luisroquett/dentalclinic.git](https://github.com/luisroquett/dentalclinic.git)
 
-### Prerequisites
+### Preview
 
-What things you need to install the software and how to install them.
+Page navigation preview.
 
-```
-Give examples
-```
+- ![video-demo](/_imagenes/mobile_1.gif)
+---
+- ![video-demo](/_imagenes/mobile.gif)
+---
+- ![img-demo](/_imagenes/mobile.png)
 
-### Installing
+### Installation
 
-A step by step series of examples that tell you how to get a development env running.
+- Clone this repository.
+- Install dependencies: `npm install`
+- Start the server: `npm run dev`
 
-Say what the step will be
+##  Usage <a name="usage"></a>
 
-```
-Give the example
-```
+- Register as a user.
+- Log in as a user.
+- Create an appointment as a user and modify or delete it.
 
-And repeat
+## Built Using <a name = "built_using"></a>
 
-```
-until finished
-```
+- React.
+- Bootstrap.
+- HTML.
+- CSS - sass.
 
-End with an example of getting some data out of the system or using it for a little demo.
+## ✍️ Authors <a name = "authors"></a>
 
-## Usage <a name = "usage"></a>
+- [Luis](https://github.com/luisroquett) 
 
-Add notes about how to use the system.
+See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
+
+## Acknowledgements:
+
+Special thanks to the instructor:
+
+- **_Prof. Fidel Guilart_**
+
+## Contact
+
+**_Luis Guerrero_**  
+[![github](https://img.shields.io/badge/github-24292F?style=for-the-badge&logo=github&logoColor=orange)](https://github.com/luisroquett)
+
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:cesard.0925@gmail.com)
+
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/linkedinUser/)

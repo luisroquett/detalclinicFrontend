@@ -44,8 +44,8 @@ appointmentService.updateAppointment = async (token, data, idAppointment) => {
     },
   };
   const body = {
-    fecha: data.fecha,
-    horario: data.horario,
+    date: data.date,
+    time: data.time,
   };
   return (
     await axios.put(

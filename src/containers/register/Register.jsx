@@ -94,7 +94,7 @@ export default function Register() {
                         <MDBInput
                           required
                           wrapperClass="mb-4"
-                          label="Nombre"
+                          label="Name"
                           size="lg"
                           type="text"
                           onChange={handleChange}
@@ -106,7 +106,7 @@ export default function Register() {
                         <MDBInput
                           required
                           wrapperClass="mb-4"
-                          label="Apellido"
+                          label="Lastname"
                           size="lg"
                           type="text"
                           onChange={handleChange}
@@ -119,7 +119,7 @@ export default function Register() {
                     <MDBInput
                       required
                       wrapperClass="mb-4"
-                      label="Correo electrónico"
+                      label="Email"
                       size="lg"
                       type="email"
                       onChange={handleChange}
@@ -129,7 +129,7 @@ export default function Register() {
                     <MDBInput
                       required
                       wrapperClass="mb-4"
-                      label="Teléfono"
+                      label="Phone"
                       size="lg"
                       type="text"
                       onChange={handleChange}
@@ -139,7 +139,7 @@ export default function Register() {
                     <MDBInput
                       required
                       wrapperClass="mb-4"
-                      label="Contraseña"
+                      label="Password"
                       size="lg"
                       type="password"
                       onChange={handleChange}

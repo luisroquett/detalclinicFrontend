@@ -219,7 +219,7 @@ export default function UserProfile() {
             <Form.Group className="mb-3">
               <Form.Label>Phone</Form.Label>
               <Form.Control
-                type="number"
+                type="text"
                 placeholder="New phone"
                 name="telefono"
                 value={formValues.telefono}
@@ -246,7 +246,7 @@ export default function UserProfile() {
             )}
             <div className="updateButton">
               <Button variant="primary" type="submit">
-                Editar
+                Update
               </Button>
             </div>
           </Form>

@@ -110,7 +110,7 @@ export default function RegisterDoctor() {
                           <MDBInput
                             required
                             wrapperClass="mb-4"
-                            label="Nombre"
+                            label="Name"
                             size="lg"
                             type="text"
                             onChange={handleChange}
@@ -122,7 +122,7 @@ export default function RegisterDoctor() {
                           <MDBInput
                             required
                             wrapperClass="mb-4"
-                            label="Apellido"
+                            label="Lastname"
                             size="lg"
                             type="text"
                             onChange={handleChange}
@@ -157,7 +157,7 @@ export default function RegisterDoctor() {
                       <MDBInput
                         required
                         wrapperClass="mb-4"
-                        label="Contraseña"
+                        label="Password"
                         size="lg"
                         type="password"
                         onChange={handleChange}

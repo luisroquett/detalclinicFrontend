@@ -39,8 +39,7 @@ authService.registerDoctor = async (credentials, token) => {
   const body = {
     nombre: credentials.nombre,
     apellidos: credentials.apellidos,
-    edad: credentials.edad,
-    activo: credentials.activo,
+    telefono: credentials.telefono,
     email: credentials.email,
     password: credentials.password,
   };

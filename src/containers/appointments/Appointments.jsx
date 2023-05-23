@@ -116,23 +116,23 @@ export default function Citas() {
           <h2>Modificar la cita con ID: {appointmentId}</h2>
           <Form onSubmit={handleSubmit} className="updateForm">
             <Form.Group className="mb-4">
-              <Form.Label>Nueva Fecha</Form.Label>
+              <Form.Label>New date</Form.Label>
               <Form.Control
                 type="date"
-                name="fecha"
+                name="date"
                 value={formValues.fecha}
                 onChange={handleChange}
               />
             </Form.Group>
 
             <Form.Group className="mb-4">
-              <Form.Label>Chosse the date</Form.Label>
+              <Form.Label>Chosse hour</Form.Label>
               <br />
               <Form.Check
                 required
                 inline
                 type={"radio"}
-                name="horario"
+                name="time"
                 value="15:45:00"
                 label={`15:45`}
                 onChange={handleChange}
@@ -140,7 +140,7 @@ export default function Citas() {
               <Form.Check
                 inline
                 type={"radio"}
-                name="horario"
+                name="time"
                 value="10:00:00"
                 id={2}
                 label={`10:00`}
@@ -149,7 +149,7 @@ export default function Citas() {
               <Form.Check
                 inline
                 type={"radio"}
-                name="horario"
+                name="time"
                 value="11:30:00"
                 label={`11:30`}
                 onChange={handleChange}
