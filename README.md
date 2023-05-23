@@ -70,6 +70,5 @@ Special thanks to the instructor:
 **_Luis Guerrero_**  
 [![github](https://img.shields.io/badge/github-24292F?style=for-the-badge&logo=github&logoColor=orange)](https://github.com/luisroquett)
 
-[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:cesard.0925@gmail.com)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:luisguerreroroquett@gmail.com)
 
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/linkedinUser/)
