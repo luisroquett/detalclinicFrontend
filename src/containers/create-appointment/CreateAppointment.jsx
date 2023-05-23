@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import appointmentService from "../../_services/appointmentService";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import "./CreateAppointment.scss";
 
 export default function CreateAppoint() {
   // HOOKS
@@ -71,92 +72,81 @@ export default function CreateAppoint() {
         </>
       )}
       {showForm && (
-        <>
-          <h1>Make an appointment with us</h1>
-          <Form
-            className="updateForm"
-            onSubmit={handleSubmit}
-            noValidate
-            validated={validated}
-          >
-            <Form.Group className="mb-4">
-              <Form.Label style={{color: "rgb(33, 96, 231)"}}>Nueva Fecha</Form.Label>
-              <Form.Control
-                required
-                type="date"
-                name="date"
-                value={formValues.fecha}
-                onChange={handleChange}
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-4">
-              <Form.Label>Schedules available</Form.Label>
+       <>
+       <h1 className="title">Make an appointment with us</h1>
+       <Form
+         className="updateForm"
+         onSubmit={handleSubmit}
+         noValidate
+         validated={validated}
+       >
+         <Form.Group className="mb-4">
+           <Form.Label className="label">New date</Form.Label>
+           <Form.Control
+             required
+             type="date"
+             name="date"
+             value={formValues.fecha}
+             onChange={handleChange}
+           />
+         </Form.Group>
+     
+         <Form.Group className="mb-4">
+              <Form.Label>Elegir horario</Form.Label>
               <br />
               <Form.Check
                 required
                 inline
                 type={"radio"}
-                name="time"
-                value="09:15:00"
-                label={`9:15AM`}
-                onChange={handleChange}
-              />
-              <Form.Check
-                required
-                inline
-                type={"radio"}
-                name="time"
-                value="10:15:00"
-                label={`10:15AM`}
+                name="horario"
+                value="15:45:00"
+                label={`15:45`}
                 onChange={handleChange}
               />
               <Form.Check
                 inline
                 type={"radio"}
-                name="time"
-                value="16:00:00"
-                label={`4:00PM`}
+                name="horario"
+                value="10:00:00"
+                id={2}
+                label={`10:00`}
                 onChange={handleChange}
               />
               <Form.Check
                 inline
                 type={"radio"}
-                name="time"
-                value="19:30:00"
-                label={`7:30PM`}
+                name="horario"
+                value="11:30:00"
+                label={`11:30`}
                 onChange={handleChange}
               />
             </Form.Group>
-            <Form.Group className="mb-4">
-              <Form.Label>Elige el Doctor</Form.Label>
-              <Form.Check
-                required
-                type={"radio"}
-                name="id_doctors"
-                value={1}
-                label={`Gerardo Martinez`}
-                onChange={handleChange}
-              />
-              <Form.Check
-                type={"radio"}
-                name="id_doctors"
-                value={2}
-                label={`Padula Rumiel`}
-                onChange={handleChange}
-              />
-            </Form.Group>
-
-          
-
-            
-            <div className="appointButton">
-              <Button variant="primary" type="submit" className="formButton">
-                Create appointment
-              </Button>
-            </div>
-          </Form>
-        </>
+         <Form.Group className="mb-4">
+           <Form.Label className="label">Choose the doctor</Form.Label>
+           <Form.Check
+             required
+             type="radio"
+             name="id_doctors"
+             value={1}
+             label="Gerardo Martinez"
+             onChange={handleChange}
+           />
+           <Form.Check
+             type="radio"
+             name="id_doctors"
+             value={2}
+             label="Padula Rumiel"
+             onChange={handleChange}
+           />
+         </Form.Group>
+     
+         <div className="appointButton">
+           <Button variant="primary" type="submit" className="formButton">
+             Create appointment
+           </Button>
+         </div>
+       </Form>
+     </>
       )}
     </div>
   );

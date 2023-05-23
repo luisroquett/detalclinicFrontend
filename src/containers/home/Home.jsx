@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Container, Row, Col, Card, CardGroup, Carousel } from "react-bootstrap";
+import { Button, Container, Row, Col, Carousel } from "react-bootstrap";
+import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImage } from 'mdb-react-ui-kit';
 import "./Home.scss";
 
 export default function Home() {
@@ -8,29 +9,30 @@ export default function Home() {
          <Row className="mt-5">
             <Col>
                <h1 className="home-title">Welcome to Dental Clinic</h1>
-               <Button variant="primary">Schedule an Appointment</Button>
-            </Col>
+               </Col>
          </Row>
          <Row className="mt-5">
             <Col md={6}>
-               <Card className="home-card">
-                  <Card.Body>
-                     <Card.Title>Services</Card.Title>
-                     <Card.Text>
+               <MDBCard className="home-card">
+                  <MDBCardBody>
+                     <MDBCardTitle>Services</MDBCardTitle>
+                     <MDBCardText>
                         At our dental clinic, we offer a wide range of services to take care of your oral health. Our highly skilled professionals will provide you with the best treatment and personalized care.
-                     </Card.Text>
-                  </Card.Body>
-               </Card>
+                     </MDBCardText>
+                     <MDBCardImage src="/src/assets/services.jpg" alt="Dentists" position="top" />
+                  </MDBCardBody>
+               </MDBCard>
             </Col>
             <Col md={6}>
-               <Card className="home-card">
-                  <Card.Body>
-                     <Card.Title>Medical Team</Card.Title>
-                     <Card.Text>
+               <MDBCard className="home-card">
+                  <MDBCardBody>
+                     <MDBCardTitle>Medical Team</MDBCardTitle>
+                     <MDBCardText>
                         We have a team of dentists specialized in different areas, including orthodontics, endodontics, periodontics, and oral surgery. Our experts stay updated with the latest techniques and technologies to ensure excellent results.
-                     </Card.Text>
-                  </Card.Body>
-               </Card>
+                     </MDBCardText>
+                     <MDBCardImage src="/src/assets/Dentistas.jpg" alt="Dentists" position="top" />
+                  </MDBCardBody>
+               </MDBCard>
             </Col>
          </Row>
          <Row className="mt-5">
@@ -38,26 +40,26 @@ export default function Home() {
                <h2 className="home-testimonials-title">Testimonials from Our Patients</h2>
                <Carousel className="home-carousel">
                   <Carousel.Item>
-                     <Card className="home-testimonial-card">
-                        <Card.Body>
-                           <Card.Text>
+                     <MDBCard className="home-testimonial-card">
+                        <MDBCardBody>
+                           <MDBCardText>
                               "Excellent care and results! I am very satisfied with my orthodontic treatment. The clinic staff is friendly and professional."
-                           </Card.Text>
-                           <Card.Title>Dani Molar</Card.Title>
-                           <Card.Subtitle>Satisfied Patient</Card.Subtitle>
-                        </Card.Body>
-                     </Card>
+                           </MDBCardText>
+                           <MDBCardTitle>Dani Molar</MDBCardTitle>
+                           <MDBCardTitle tag="h6">Satisfied Patient</MDBCardTitle>
+                        </MDBCardBody>
+                     </MDBCard>
                   </Carousel.Item>
                   <Carousel.Item>
-                     <Card className="home-testimonial-card">
-                        <Card.Body>
-                           <Card.Text>
+                     <MDBCard className="home-testimonial-card">
+                        <MDBCardBody>
+                           <MDBCardText>
                               "Thanks to the dental clinic, my smile has significantly improved. I highly recommend their services. They are the best!"
-                           </Card.Text>
-                           <Card.Title>Luis Garganta</Card.Title>
-                           <Card.Subtitle>Happy Patient</Card.Subtitle>
-                        </Card.Body>
-                     </Card>
+                           </MDBCardText>
+                           <MDBCardTitle>Luis Garganta</MDBCardTitle>
+                           <MDBCardTitle tag="h6">Happy Patient</MDBCardTitle>
+                        </MDBCardBody>
+                     </MDBCard>
                   </Carousel.Item>
                </Carousel>
             </Col>
@@ -65,3 +67,10 @@ export default function Home() {
       </Container>
    );
 }
+
+
+
+
+
+
+

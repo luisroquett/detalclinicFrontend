@@ -120,59 +120,39 @@ export default function UserProfile() {
   return (
     <div className="container Userprofile">
       <section>
-        <MDBContainer className="py-5 h-100">
-          <MDBRow className="justify-content-center align-items-center h-100">
-            <MDBCol lg="6" className="mb-4 mb-lg-0">
-              <MDBCard
-                className="mb-3"
-                style={{
-                  borderRadius: ".5rem",
-                  boxShadow:
-                    "rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px",
-                }}
-              >
-                <MDBRow className="g-0">
-                  <MDBCol
-                    md="4"
-                    className="text-center text-black"
-                    style={{
-                      borderTopLeftRadius: ".5rem",
-                      borderBottomLeftRadius: ".5rem",
-                    }}
-                  >
-                    <MDBTypography tag="h5">
-                      {profile.nombre} {profile.apellidos}
-                    </MDBTypography>
-                    <MDBCardText>
-                      {authState.userInfo.role.toUpperCase()}
-                    </MDBCardText>
-                    <MDBIcon far icon="edit mb-5" />
-                  </MDBCol>
-                  <MDBCol md="8">
-                    <MDBCardBody className="p-4">
-                      <MDBTypography tag="h6">Information</MDBTypography>
-                      <hr className="mt-0 mb-4" />
-                      <MDBRow className="pt-1">
-                        <MDBCol className="mb-3 col-12">
-                          <MDBTypography tag="h6">Email</MDBTypography>
-                          <MDBCardText className="text-muted">
-                            {profile.email}
-                          </MDBCardText>
-                        </MDBCol>
-                        <MDBCol className="mb-3 col-12 col-md-6">
-                          <MDBTypography tag="h6">Phone</MDBTypography>
-                          <MDBCardText className="text-muted">
-                            {profile.telefono}
-                          </MDBCardText>
-                        </MDBCol>
-                      </MDBRow>
-                    </MDBCardBody>
-                  </MDBCol>
-                </MDBRow>
-              </MDBCard>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
+      <MDBContainer className="py-5">
+      <MDBRow className="justify-content-center">
+        <MDBCol lg="6" className="mb-4">
+          <MDBCard className="profile-card">
+            <MDBCardBody>
+              <MDBRow className="align-items-center">
+                <MDBCol md="4" className="text-center profile-info">
+                  <h3 className="profile-name">
+                    {profile.nombre} {profile.apellidos}
+                  </h3>
+                  <p className="profile-role">{authState.userInfo.role.toUpperCase()}</p>
+                  <MDBIcon far icon="edit" className="edit-icon" />
+                </MDBCol>
+                <MDBCol md="8">
+                  <MDBCardBody>
+                    <h5 className="section-title">Information</h5>
+                    <hr className="section-divider" />
+                    <div className="profile-info">
+                      <h6 className="info-label">Email</h6>
+                      <p className="info-value">{profile.email}</p>
+                    </div>
+                    <div className="profile-info">
+                      <h6 className="info-label">Phone</h6>
+                      <p className="info-value">{profile.telefono}</p>
+                    </div>
+                  </MDBCardBody>
+                </MDBCol>
+              </MDBRow>
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
+    </MDBContainer>
         {!showForm && (
           <div className="showButtonContainer">
             <Button variant="danger" onClick={handleShowForm}>
@@ -248,7 +228,7 @@ export default function UserProfile() {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>New Password</Form.Label>
               <Form.Control
                 type="password"
                 placeholder="New password"

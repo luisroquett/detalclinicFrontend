@@ -1,0 +1,37 @@
+.title {
+    color: rgb(254, 254, 254);
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    
+  }
+  
+  .updateForm {
+    .mb-4 {
+      margin-bottom: 1.5rem;
+    }
+  
+    .label {
+      font-weight: bold;
+    }
+  
+    .form-control {
+      background-color: #f2f2f2;
+      border: none;
+      border-radius: 5px;
+      padding: 12px;
+      font-size: 16px;
+      color: #333;
+      box-shadow: none;
+    }
+  
+    .appointButton {
+      text-align: center;
+      margin-top: 20px;
+  
+      .formButton {
+        width: 200px;
+      }
+    }
+  }
+  

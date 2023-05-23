@@ -21,12 +21,9 @@ export default function Citas() {
 
   useEffect(() => {
     if (isLoggedIn && isPatient) {
-      getAppointmentPatient(authState.userToken, authState.userInfo.id); 
-     
-    
+      getAppointmentPatient(authState.userToken, authState.userInfo.id);
     } else if (isLoggedIn && isDoctor) {
       getAppointmentDoctor(authState.userToken, authState.userInfo.id);
-    
     } else {
       navigate("/");
     }
@@ -41,7 +38,6 @@ export default function Citas() {
       );
 
       setAppointments(response.data);
-     
     } catch (error) {
       console.log(error);
     }
@@ -133,29 +129,30 @@ export default function Citas() {
               <Form.Label>Chosse the date</Form.Label>
               <br />
               <Form.Check
+                required
                 inline
                 type={"radio"}
-                name="time"
+                name="horario"
                 value="15:45:00"
-                onChange={handleChange}
                 label={`15:45`}
+                onChange={handleChange}
               />
               <Form.Check
                 inline
                 type={"radio"}
-                name="time"
+                name="horario"
                 value="10:00:00"
-                onChange={handleChange}
                 id={2}
                 label={`10:00`}
+                onChange={handleChange}
               />
               <Form.Check
                 inline
                 type={"radio"}
-                name="time"
+                name="horario"
                 value="11:30:00"
-                onChange={handleChange}
                 label={`11:30`}
+                onChange={handleChange}
               />
             </Form.Group>
 
