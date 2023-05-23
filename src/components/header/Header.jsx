@@ -13,7 +13,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import navLogo from "../../assets/dentalLogo.png";
-
+import "./Header.scss";
 export default function Header() {
   // hooks
   const navigate = useNavigate();

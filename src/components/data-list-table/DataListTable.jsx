@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useState } from "react";
+import "./DataListTable.scss";
 import { TablePagination } from "../../components";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
 
@@ -9,9 +9,36 @@ export default function DataListTable({
   headers,
   attributes,
   onChange,
-
   pagination = null,
 }) {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(10);
+
+  // Calcular el índice inicial y final de los elementos a mostrar en la página actual
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentData = data.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Cambiar a la página siguiente
+  const nextPage = () => {
+    const totalPages = Math.ceil(data.length / itemsPerPage);
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  // Cambiar a la página anterior
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  // Función de cambio de página
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
   return (
     <div className="DataListTable">
       <div style={{ overflowX: "auto" }}>
@@ -19,7 +46,7 @@ export default function DataListTable({
         <MDBTable
           striped
           hover
-          className="bg-success bg-gradient rounded-3 bg-opacity-25"
+          className="bg-success bg-gradient rounded-3 bg-opacity-25 custom-table"
         >
           <MDBTableHead>
             <tr colSpan={headers.length}>
@@ -36,8 +63,13 @@ export default function DataListTable({
             </tr>
           </MDBTableHead>
           <MDBTableBody>
-            {data.map((d) => (
-              <tr scope="row" data-data-id={d.id} onClick={onChange} key={d.id}>
+            {currentData.map((d) => (
+              <tr
+                scope="row"
+                data-data-id={d.id}
+                onClick={onChange}
+                key={d.id}
+              >
                 {attributes.map((attr, index) => (
                   <td data-label={headers[index]} key={index}>
                     {d[attr] ? d[attr] : "No definido"}
@@ -46,23 +78,19 @@ export default function DataListTable({
               </tr>
             ))}
           </MDBTableBody>
-          {pagination && (
-            <tfoot>
-              <tr>
-                <td colSpan={headers.length}>
-                  <TablePagination
-                    page={pagination.page}
-                    count={pagination.count}
-                    totalPages={pagination.totalPages}
-                    limit={data.length}
-                    onChange={onChange}
-                  />
-                </td>
-              </tr>
-            </tfoot>
-          )}
         </MDBTable>
       </div>
+      {pagination && (
+        <TablePagination
+          page={currentPage}
+          count={data.length}
+          totalPages={Math.ceil(data.length / itemsPerPage)}
+          limit={itemsPerPage}
+          onChange={handlePageChange}
+          onNextPage={nextPage}
+          onPrevPage={prevPage}
+        />
+      )}
     </div>
   );
 }

@@ -130,12 +130,12 @@ export default function Citas() {
             </Form.Group>
 
             <Form.Group className="mb-4">
-              <Form.Label>Elegir horario</Form.Label>
+              <Form.Label>Chosse the date</Form.Label>
               <br />
               <Form.Check
                 inline
                 type={"radio"}
-                name="horario"
+                name="time"
                 value="15:45:00"
                 onChange={handleChange}
                 label={`15:45`}
@@ -143,7 +143,7 @@ export default function Citas() {
               <Form.Check
                 inline
                 type={"radio"}
-                name="horario"
+                name="time"
                 value="10:00:00"
                 onChange={handleChange}
                 id={2}
@@ -152,7 +152,7 @@ export default function Citas() {
               <Form.Check
                 inline
                 type={"radio"}
-                name="horario"
+                name="time"
                 value="11:30:00"
                 onChange={handleChange}
                 label={`11:30`}

@@ -18,6 +18,8 @@ import {
   MDBIcon,
 } from "mdb-react-ui-kit";
 import validator from "validator";
+import "./UserProfile.scss";
+
 
 export default function UserProfile() {
   // HOOKS
@@ -70,7 +72,7 @@ export default function UserProfile() {
           })
         ) {
           event.preventDefault();
-        return  setUpdateError("La contraseña debe contener mínimo 8 caracteres");
+        return  setUpdateError("Password must contain at least 8 characters");
         } else if (
           validator.isByteLength(formValues.password, {
             min: 8,
@@ -201,7 +203,7 @@ export default function UserProfile() {
               <Form.Control
                 type="text"
                 placeholder="Update name"
-                name="name"
+                name="nombre"
                 value={formValues.nombre}
                 onChange={handleChange}
               />
@@ -211,35 +213,34 @@ export default function UserProfile() {
               <Form.Control
                 type="text"
                 placeholder="Update lastname"
-                name="lastname"
+                name="apellidos"
                 value={formValues.apellidos}
                 onChange={handleChange}
               />
               <Form.Text className="text-muted">
-                Debe incluir solo el primer apellido
+                
               </Form.Text>
             </Form.Group>
 
 
             <Form.Group className="mb-3">
-              <Form.Label>Correo electrónico</Form.Label>
+              <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
-                placeholder="Actualize su email"
+                placeholder="New email"
                 name="email"
                 value={formValues.email}
                 onChange={handleChange}
               />
               <Form.Text className="text-muted">
-                Nunca compartiremos tu correo con terceros.
-              </Form.Text>
+                              </Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Teléfono</Form.Label>
+              <Form.Label>Phone</Form.Label>
               <Form.Control
                 type="number"
-                placeholder="Actualize su Teléfono"
+                placeholder="New phone"
                 name="telefono"
                 value={formValues.telefono}
                 onChange={handleChange}
@@ -247,17 +248,16 @@ export default function UserProfile() {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Nueva contraseña</Form.Label>
+              <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="Cambie su contraseña"
+                placeholder="New password"
                 name="password"
                 value={formValues.password}
                 onChange={handleChange}
               />
               <Form.Text>
-                Su contraseña debe tener mínimo 8 caracteres y no debe contener
-                espacios.
+              Your password must be at least 8 characters long and must not contain spaces.
               </Form.Text>
             </Form.Group>
             {updateError && <p style={{ color: "red" }}>{updateError}</p>}

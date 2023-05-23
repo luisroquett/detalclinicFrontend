@@ -1,3 +1,87 @@
-.Header{
-    background-color: aqua;
-}
+// Header.scss
+
+.Header {
+    background-color: #333;
+    padding: 1rem;
+  
+    .navbar {
+      &.bg-gradient {
+        background: linear-gradient(45deg, #4a90e2, #00d4ff);
+      }
+  
+      .navbar-brand {
+        img {
+          margin-right: 0.5rem;
+        }
+      }
+  
+      .navbar-nav {
+        .nav-link {
+          color: #fff;
+          font-size: 1rem;
+  
+          &:hover,
+          &:focus {
+            color: #fff;
+            background-color: transparent;
+          }
+  
+          &.active {
+            color: #fff;
+            font-weight: bold;
+          }
+        }
+  
+        .nav-item {
+          &:not(:last-child) {
+            margin-right: 1rem;
+          }
+        }
+      }
+  
+      .nav {
+        .nav-link {
+          display: flex;
+          align-items: center;
+  
+          svg {
+            margin-right: 0.25rem;
+          }
+        }
+      }
+  
+      .nav-dropdown {
+        .dropdown-menu {
+          background-color: #333;
+          border: none;
+  
+          .dropdown-item {
+            color: #fff;
+            font-size: 1rem;
+  
+            svg {
+              margin-right: 0.5rem;
+            }
+  
+            &:hover,
+            &:focus {
+              background-color: #4a90e2;
+              color: #fff;
+            }
+          }
+        }
+  
+        .dropdown-toggle {
+          color: #fff;
+          font-size: 1rem;
+  
+          &:hover,
+          &:focus {
+            color: #fff;
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+  

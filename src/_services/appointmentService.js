@@ -29,15 +29,15 @@ appointmentService.createAppointment = async (token, data) =>{
     },
   };
   const body = {
-    id_odontologo: data.id_odontologo,
-    fecha: data.fecha,
-    horario: data.horario
+    id_doctors: data.id_doctors,
+    date: data.date,
+    time: data.horario
   }
   return (await axios.post(global.BASE_URL + `/appointments/createappointment`, body, config))
     .data;
 }
 
-appointmentService.updateCita = async (token, data, idAppointment) => {
+appointmentService.updateAppointment = async (token, data, idAppointment) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -56,7 +56,7 @@ appointmentService.updateCita = async (token, data, idAppointment) => {
   ).data;
 };
 
-appointmentService.deleteCita = async (token, idAppointment) => {
+appointmentService.deleteAppointment = async (token, idAppointment) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,

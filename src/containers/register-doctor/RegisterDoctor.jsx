@@ -13,7 +13,7 @@ import {
 import Button from "react-bootstrap/Button";
 import authService from "../../_services/authService";
 import Form from "react-bootstrap/Form";
-
+import registerImage from "../../assets/register_doctor.png";
 import validator from "validator";
 import "./RegisterDoctor.scss";
 
@@ -79,9 +79,9 @@ export default function RegisterDoctor() {
 
   return (
     <div className="container Registerdoctor">
-      {!showForm && (
+        {!showForm && (
         <div className="d-flex justify-content-center mt-5">
-          <h1>Registrado Correctamente!</h1>
+          <h1>Registered doctor</h1>
           <Button onClick={handleShowForm}>Registrar un nuevo doctor</Button>
         </div>
       )}
@@ -91,7 +91,7 @@ export default function RegisterDoctor() {
             <MDBCard className="my-4 registerCard">
               <MDBRow className="g-0">
                 <MDBCol md="6" className="d-none d-md-block">
-                  
+                <MDBCardImage src={registerImage} alt="Clinic Logo" fluid />
                 </MDBCol>
 
                 <MDBCol md="6">
@@ -102,7 +102,7 @@ export default function RegisterDoctor() {
                   >
                     <MDBCardBody className="text-black d-flex flex-column justify-content-center">
                       <h3 className="mb-5 text-uppercase fw-bold">
-                        Registrar un Doctor
+                      Register a Doctor
                       </h3>
 
                       <MDBRow>
@@ -136,11 +136,13 @@ export default function RegisterDoctor() {
                         wrapperClass="mb-4"
                         label="Phone"
                         size="lg"
-                        type="number"
+                        type="text"
                         onChange={handleChange}
                         name="telefono"
                         value={formValues.telefono}
+                        
                       />
+                      
                      
                       <MDBInput
                         required
@@ -173,7 +175,7 @@ export default function RegisterDoctor() {
                           size="lg"
                           type="submit"
                         >
-                          Registrar
+                          Register
                         </Button>
                       </div>
                     </MDBCardBody>

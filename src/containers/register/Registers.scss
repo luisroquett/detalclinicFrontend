@@ -1,0 +1,34 @@
+.registerCard {
+    background-color: #f8f9fa;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .registerForm {
+    .form-control {
+      background-color: #f2f2f2;
+      border: none;
+      border-radius: 5px;
+      padding: 12px;
+      font-size: 16px;
+      color: #333;
+      box-shadow: none;
+    }
+  
+    .form-label {
+      font-weight: 500;
+    }
+  
+    .mb-4 {
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  

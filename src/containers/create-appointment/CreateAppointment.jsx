@@ -23,9 +23,9 @@ export default function CreateAppoint() {
   }, []);
 
   // FUNCTIONS
-  const createAppointment = async (token, newAppointData) => {
+  const createAppointment = async (token, body) => {
     try {
-      await appointmentService.createAppointment(token, newAppointData);
+      await appointmentService.createAppointment(token, body);
     } catch (error) {
       console.log(error);
     }
@@ -84,7 +84,7 @@ export default function CreateAppoint() {
               <Form.Control
                 required
                 type="date"
-                name="fecha"
+                name="date"
                 value={formValues.fecha}
                 onChange={handleChange}
               />
@@ -97,8 +97,8 @@ export default function CreateAppoint() {
                 required
                 inline
                 type={"radio"}
-                name="horario"
-                value="9:15:00"
+                name="time"
+                value="09:15:00"
                 label={`9:15AM`}
                 onChange={handleChange}
               />
@@ -106,24 +106,23 @@ export default function CreateAppoint() {
                 required
                 inline
                 type={"radio"}
-                name="horario"
-                value="9:15:00"
+                name="time"
+                value="10:15:00"
                 label={`10:15AM`}
                 onChange={handleChange}
               />
               <Form.Check
                 inline
                 type={"radio"}
-                name="horario"
+                name="time"
                 value="16:00:00"
-                id={2}
                 label={`4:00PM`}
                 onChange={handleChange}
               />
               <Form.Check
                 inline
                 type={"radio"}
-                name="horario"
+                name="time"
                 value="19:30:00"
                 label={`7:30PM`}
                 onChange={handleChange}
@@ -134,14 +133,14 @@ export default function CreateAppoint() {
               <Form.Check
                 required
                 type={"radio"}
-                name="id_doctor"
+                name="id_doctors"
                 value={1}
                 label={`Gerardo Martinez`}
                 onChange={handleChange}
               />
               <Form.Check
                 type={"radio"}
-                name="id_doctor"
+                name="id_doctors"
                 value={2}
                 label={`Padula Rumiel`}
                 onChange={handleChange}
@@ -153,7 +152,7 @@ export default function CreateAppoint() {
             
             <div className="appointButton">
               <Button variant="primary" type="submit" className="formButton">
-                Crear cita
+                Create appointment
               </Button>
             </div>
           </Form>
