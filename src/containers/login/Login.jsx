@@ -8,8 +8,8 @@ import "./Login.scss";
 
 export default function Login() {
   const initialFormValues = {
-    email: "mandia@email.com",
-    password: "12345678",
+    email: "",
+    password: "",
   };
 
   // HOOKS

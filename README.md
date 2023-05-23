@@ -28,11 +28,11 @@ Backend: [https://github.com/luisroquett/dentalclinic.git](https://github.com/lu
 
 Page navigation preview.
 
-- ![](/_imagenes/mobile_1.gif)
+- ![](./src/assets/home.png)
 ---
-- ![](/_imagenes/mobile.gif)
+- ![](./src/assets/login.png)
 ---
-- ![](/_imagenes/mobile.png)
+- ![](./src/assets/profile.jpg)
 
 ### Installation
 
